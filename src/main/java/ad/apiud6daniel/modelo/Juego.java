@@ -1,10 +1,9 @@
 package ad.apiud6daniel.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.List;
 
 @Entity(name = "juego")
 public class Juego {
@@ -13,6 +12,9 @@ public class Juego {
     long id;
     @NotBlank(message = "El juego debe tener nombre")
     String nombre;
+
+    @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Puntuacion> puntuaciones;
 
     public Juego() {}
 
