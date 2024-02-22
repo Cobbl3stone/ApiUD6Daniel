@@ -56,7 +56,7 @@ public class PuntuacionControlador {
     }
 
     //Todas las puntuaciones de un juego
-    @GetMapping("/juego/{id}")
+    @GetMapping("/juego/{idJuego}")
     public List<Puntuacion> obtenerPuntuacionesJuego(@PathVariable Long idJuego) {
         return puntuacionRepositorio.findByJuegoId(idJuego);
     }
