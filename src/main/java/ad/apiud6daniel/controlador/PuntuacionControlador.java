@@ -55,6 +55,12 @@ public class PuntuacionControlador {
         }).orElseThrow(() -> new RuntimeException("Puntuacion no encontrada"));
     }
 
+    //Todas las puntuaciones de un juego
+    @GetMapping("/juego/{id}")
+    public List<Puntuacion> obtenerPuntuacionesJuego(@PathVariable Long idJuego) {
+        return puntuacionRepositorio.findByJuegoId(idJuego);
+    }
+
     //eliminar Puntuacion (DELETE)
     @DeleteMapping("/{id}")
     public void eliminarPuntuacion(@PathVariable Long id) {
