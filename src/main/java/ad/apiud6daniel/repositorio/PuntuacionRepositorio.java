@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface PuntuacionRepositorio extends JpaRepository<Puntuacion, Long> {
     List<Puntuacion> findByJuegoId(long id);
+    List<Puntuacion> findByJuegoIdOrderByCantidadDesc(long id);
+    List<Puntuacion> findByJugador(String jugador);
 }

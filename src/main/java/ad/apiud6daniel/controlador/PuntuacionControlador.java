@@ -61,6 +61,16 @@ public class PuntuacionControlador {
         return puntuacionRepositorio.findByJuegoId(idJuego);
     }
 
+    @GetMapping("/juego/{idJuego}/top")
+    public List<Puntuacion> obtenerTopPuntuacionesJuego(@PathVariable Long idJuego){
+        return puntuacionRepositorio.findByJuegoIdOrderByCantidadDesc(idJuego);
+    }
+
+    @GetMapping("/jugador/{jugador}")
+    public List<Puntuacion> obtenerPuntuacionesJugador(@PathVariable String jugador){
+        return puntuacionRepositorio.findByJugador(jugador);
+    }
+
     //eliminar Puntuacion (DELETE)
     @DeleteMapping("/{id}")
     public void eliminarPuntuacion(@PathVariable Long id) {
